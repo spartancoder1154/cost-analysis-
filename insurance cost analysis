@@ -1,0 +1,58 @@
+# Lists
+names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace"]
+estimated_insurance_costs = [1000, 2000, 3000, 4000, 5000, 6000, 7000]
+actual_insurance_costs = [1100, 2200, 3300, 4400, 5500, 6600, 7700]
+
+# Step 1: Initialize total cost
+total_cost = 0
+
+# Step 2: Calculate total insurance cost
+for cost in actual_insurance_costs:
+    total_cost += cost
+
+# Step 3: Calculate average cost
+average_cost = total_cost / len(actual_insurance_costs)
+
+# Step 4: Print average cost
+print(f"Average Insurance Cost: {average_cost} dollars.")
+
+# Step 5-8: Loop through names and compare costs
+for i in range(len(names)):
+    name = names[i]
+    insurance_cost = actual_insurance_costs[i]
+    estimated_cost = estimated_insurance_costs[i]
+    difference = insurance_cost - average_cost
+    est_difference = estimated_cost - average_cost
+    
+    print(f"The insurance cost for {name} is {insurance_cost} dollars.")
+    
+    if insurance_cost > average_cost:
+        print(f"The insurance cost for {name} is above average.")
+    elif insurance_cost < average_cost:
+        print(f"The insurance cost for {name} is below average.")
+    else:
+        print(f"The insurance cost for {name} is equal to the average.")
+    
+    if estimated_cost > average_cost:
+        print(f"The estimated insurance cost for {name} is above average by {est_difference:.2f} dollars.")
+    elif estimated_cost < average_cost:
+        print(f"The estimated insurance cost for {name} is below average by {est_difference:.2f} dollars.")
+    else:
+        print(f"The estimated insurance cost for {name} is equal to the average.")
+
+# Step 10: List comprehension to update estimated costs
+updated_estimated_costs = [cost * 11/10 for cost in estimated_insurance_costs]
+
+# Step 11: Print updated estimated costs
+print("Updated Estimated Costs:", updated_estimated_costs)
+
+# Extra Challenge: Convert first loop to while loop
+total_cost_while = 0
+i = 0
+while i < len(actual_insurance_costs):
+    total_cost_while += actual_insurance_costs[i]
+    i += 1
+average_cost_while = total_cost_while / len(actual_insurance_costs)
+print(f"(Using while loop) Average Insurance Cost: {average_cost_while} dollars.")
+
+
